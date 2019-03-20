@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>
+		<input type="number" id="myData" value=""><span> + </span><input type="number" id="myData2" value="">
+		<button onclick="add()">add</button>
+	</p>
+	<h5>Calculation Result:
+		<output id = "result"></output>
+	</h5>
+
+	<p>
+		<input type="number" id="minusData" value=""><span> &#8722 </span><input type="number" id="minusData2" value="">
+		<button onclick="minus()">minus</button>
+	</p>
+	<h5>Calculation Result:
+		<output id = "Result"></output>
+	</h5>
+
+	<p>
+		<input type="number" id="multiplyData" value=""><span> &#215 </span><input type="number" id="multiplyData2" value="">
+		<button onclick="multiply()">multiply</button>
+	</p>
+	<h5>Calculation Result:
+		<output id = "Results"></output>
+	</h5>
+
+	<p>
+		<input type="number" id="divideData" value=""><span> &#247 </span><input type="number" id="divideData2" value="">
+		<button onclick="divide()">divide</button>
+	</p>
+
+	<h5>Calculation Result:
+		<output id = "results"></output>
+	</h5>
+</body>
+
+<script>
+function add(){
+	var x,y
+	x = parseFloat(document.getElementById("myData").value);
+	y = parseFloat(document.getElementById("myData2").value);
+	document.getElementById("result").innerHTML= x+y;
+}
+function minus(){
+	var g,h
+	g = parseFloat(document.getElementById("minusData").value);
+	h = parseFloat(document.getElementById("minusData2").value);
+document.getElementById("Result").innerHTML= g-h;
+}
+function multiply(){
+	var a,b
+	a = parseFloat(document.getElementById("multiplyData").value);
+	b = parseFloat(document.getElementById("multiplyData2").value);
+document.getElementById("Results").innerHTML= a*b;
+}
+function divide(){
+	var c,d
+	c = parseFloat(document.getElementById("divideData").value);
+	d = parseFloat(document.getElementById("divideData2").value);
+document.getElementById("results").innerHTML= c/d;
+}
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="number" id="myData" value=" ">
+	<button onclick="math()">Results</button>
+	<output id= "Results"></output>
+</body>
+
+<script>
+function math(){
+	var x = parseFloat(document.getElementById("myData").value);
+	if(x<60 && x>=0){
+  		Show="Fail";
+	}else if(x>=60 && x<100){
+		Show="Pass";
+	}else if(x==100){
+		Show="Full Score";
+	}else{
+		Show="Invalid Score";
+	}
+	document.getElementById("Results").innerHTML = Show;
+}
+</script>
+</html>
