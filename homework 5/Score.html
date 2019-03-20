@@ -3,31 +3,33 @@
 <body>
 	<input type="number" id="myData" value=" ">
 	<button onclick="math()">Results</button>
-	<output id= "Results"></output>
 	<br><br>
 	<canvas id="myCanvas" width="300" height="50" style="border:1px solid #d3d3d3;"></canvas>
+	<output id="Loading"></output>
+	<br>
+	<output id= "Results"></output>
 	
 </body>
 
 <script>
 var old_score_width = 0;
 function math(){
+	document.getElementById("Results").innerHTML = "";
 	var x = parseFloat(document.getElementById("myData").value);
 	if(x<60 && x>=0){
   		Show="Fail";
-  		move(x);
+  		move(x,Show);
 	}else if(x>=60 && x<100){
 		Show="Pass";
-		move(x);
+		move(x,Show);
 	}else if(x==100){
 		Show="Full Score";
-		move(x);
+		move(x,Show);
 	}else{
 		Show="Invalid Score";
 	}
-	document.getElementById("Results").innerHTML = Show;
 }
-function move(score){
+function move(score,Show){
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	ctx.fillStyle = "#FF0000";
@@ -36,16 +38,26 @@ function move(score){
 
 	if(new_score_width>old_score_width){
 		var MyTimer = setInterval(function(){ 
-			if(b == new_score_width) clearInterval(MyTimer);
+			if(b == new_score_width){
+				clearInterval(MyTimer);
+				document.getElementById("Results").innerHTML = Show;
+			}  
 			ctx.fillRect(0, 0, new_score_width, 50);
 			ctx.clearRect(b, 0, 300, 50);
+			Changes = parseInt(b/3);
+			document.getElementById("Loading").innerHTML = Changes;
 			b++;
     	}, 30);
 	}else{
 		var MyTimer = setInterval(function(){ 
-			if(b == new_score_width) clearInterval(MyTimer);
+			if(b == new_score_width){
+				clearInterval(MyTimer);
+				document.getElementById("Results").innerHTML = Show;
+			}  
 			ctx.fillRect(0, 0, new_score_width, 50);
 			ctx.clearRect(b, 0, 300, 50);
+			Changes = parseInt(b/3);
+			document.getElementById("Loading").innerHTML = Changes;
 			b--;
     	}, 30);
 	}
